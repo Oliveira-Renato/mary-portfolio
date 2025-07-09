@@ -1,17 +1,37 @@
+import Video from "next-video";
+import firstVideo from "@/videos/video-1.mp4";
+import MediaThemeInstaplay from "player.style/instaplay/react";
+
 export default function Works() {
   return (
-    <section id="servicos" className="min-h-screen p-10 bg-gray-800">
-      <h2 className="text-3xl font-bold mb-8">Serviços</h2>
-      <div className="space-y-12">
-        <div>
-          <h3 className="text-2xl font-semibold mb-4">Fashion Films</h3>
-          {/* Carousel de vídeos aqui */}
-          <div className="bg-gray-700 h-64 flex items-center justify-center">[Carrossel Fashion Films]</div>
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold mb-4">Conteúdo Interativo</h3>
-          {/* Carousel de vídeos aqui */}
-          <div className="bg-gray-700 h-64 flex items-center justify-center">[Carrossel Interativo]</div>
+    <section
+      id="servicos"
+      className="min-h-screen px-4 py-10 bg-gray-800 text-white"
+    >
+      <div className="space-y-12 max-w-4xl mx-auto">
+        <div className="flex p-5">
+          <div className="w-full max-w-[310px] h-[540px] rounded-lg overflow-hidden shadow-lg">
+            <Video
+              src={firstVideo}
+              theme={MediaThemeInstaplay}
+              className="w-full h-full object-cover"
+            />
+            <Video
+              src={firstVideo}
+              theme={MediaThemeInstaplay}
+              className="w-full h-full object-cover"
+            />
+            <Video
+              src={firstVideo}
+              theme={MediaThemeInstaplay}
+              className="w-full h-full object-cover"
+            />
+            <Video
+              src={firstVideo}
+              theme={MediaThemeInstaplay}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
