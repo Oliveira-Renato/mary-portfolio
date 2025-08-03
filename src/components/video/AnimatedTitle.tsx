@@ -4,6 +4,7 @@ export default function AnimatedTitle({
   sectionInView,
   titleMoved,
   setTitleMoved,
+  setTitle,
 }) {
   return (
     <>
@@ -22,7 +23,7 @@ export default function AnimatedTitle({
           }`}
         >
           <h2 className="text-6xl font-extrabold tracking-tight text-white drop-shadow-md pointer-events-none">
-            Fashion Films
+            {setTitle}
           </h2>
         </div>
       )}

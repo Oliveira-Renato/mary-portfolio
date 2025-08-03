@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedTitle from "@/components/video/AnimatedTitle";
 import VideoCarousel from "@/components/video/VideoCarousel";
-import videos from "@/videos/videos";
+import videos from "@/assets/videos/videos";
 
-export default function Works() {
+export default function FashionFilms() {
   const sectionRef = useRef(null);
   const { FASHIONFILMES } = videos;
   const [sectionInView, setSectionInView] = useState(false);
@@ -40,6 +40,7 @@ export default function Works() {
         sectionInView={sectionInView}
         titleMoved={titleMoved}
         setTitleMoved={setTitleMoved}
+        setTitle={"Lifestyle"}
       />
       <VideoCarousel videos={FASHIONFILMES} />
     </section>

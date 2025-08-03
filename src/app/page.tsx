@@ -3,6 +3,7 @@ import About from "../sections/About/page";
 import Contact from "../sections/Contact/page";
 import Hero from "../sections/Hero/page";
 import FashionFilms from "../sections/FashionFilms/page";
+import Interactives from "../sections/Interactives/page";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <FashionFilms />
+      <Interactives />
       <Contact />
     </main>
   );
