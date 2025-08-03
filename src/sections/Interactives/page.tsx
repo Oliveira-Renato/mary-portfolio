@@ -1,11 +1,13 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import AnimatedTitle from "@/components/video/AnimatedTitle";
 import VideoCarousel from "@/components/video/VideoCarousel";
 import videos from "@/assets/videos/videos";
 
-export default function Interactives() {
-  const sectionRef = useRef(null);
+export default function FashionFilms() {
+  const sectionRef = useRef<HTMLElement | null>(null);
   const { INTERATIVOS } = videos;
   const [sectionInView, setSectionInView] = useState(false);
   const [titleMoved, setTitleMoved] = useState(false);
@@ -27,22 +29,30 @@ export default function Interactives() {
   }, []);
 
   return (
-    <section
-      id="servicos"
+    <motion.section
+      id="interactives"
       ref={sectionRef}
-      className="relative min-h-screen bg-black text-white overflow-hidden"
+      initial={{ opacity: 0, y: 30 }}
+      animate={sectionInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8 }}
+      className="relative min-h-screen bg-black text-white overflow-hidden px-4 sm:px-6"
       style={{
         background:
           "radial-gradient(ellipse at center, #000000 0%, #0a0a0a 80%, #000000 100%)",
       }}
     >
-      <AnimatedTitle
-        sectionInView={sectionInView}
-        titleMoved={titleMoved}
-        setTitleMoved={setTitleMoved}
-        setTitle={"Interativos"}
-      />
-      <VideoCarousel videos={INTERATIVOS} />
-    </section>
+      <div className="max-w-7xl mx-auto py-6">
+        <AnimatedTitle
+          sectionInView={sectionInView}
+          titleMoved={titleMoved}
+          setTitleMoved={setTitleMoved}
+          setTitle={"Interativos"}
+        />
+
+        <div className="mt-8">
+          <VideoCarousel videos={INTERATIVOS} />
+        </div>
+      </div>
+    </motion.section>
   );
 }
