@@ -10,10 +10,7 @@ import mary5 from "@/assets/about/mary-5.jpg";
 
 export default function About() {
   return (
-    <section
-      id="sobre"
-      className="min-h-screen text-white py-16 px-4 sm:px-6 lg:px-24"
-    >
+    <section id="sobre" className="text-white py-16 px-4 sm:px-6 lg:px-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Imagens */}
         <motion.div
@@ -21,10 +18,10 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex justify-start items-end relative gap-4"
+          className="flex flex-row sm:flex-row justify-start items-center sm:items-end relative gap-4"
         >
-          {/* Imagem colada no canto */}
-          <div className="relative w-70 min-h-screen">
+          {/* Imagem colada no canto (lado esquerdo) */}
+          <div className="relative w-50 sm:w-[280px] h-[400px] sm:h-[500px]">
             <Image
               src={mary5}
               fill
@@ -33,9 +30,9 @@ export default function About() {
             />
           </div>
 
-          {/* Coluna de duas imagens verticais */}
-          <div className="flex flex-col gap-4">
-            <div className="relative w-50 min-h-74">
+          {/* Coluna com duas imagens verticais (lado direito) */}
+          <div className="flex flex-col sm:flex-col gap-4">
+            <div className="relative w-[150px] sm:w-[220px] h-[192px] sm:h-[240px]">
               <Image
                 src={mary3}
                 fill
@@ -43,7 +40,7 @@ export default function About() {
                 className="object-cover rounded-xl shadow-lg"
               />
             </div>
-            <div className="relative w-50 min-h-73">
+            <div className="relative w-[150px] sm:w-[220px] h-[192px] sm:h-[240px]">
               <Image
                 src={mary2}
                 fill
@@ -60,20 +57,21 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="min-h-screen font-sans"
+          className="font-sans"
         >
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold mb-6 relative inline-block after:absolute after:left-0 after:bottom-[-10px] after:w-16 after:h-1 after:bg-pink-400">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold mb-6 relative inline-block after:absolute after:left-0 after:bottom-[-10px] after:w-16 after:h-1 after:bg-pink-400">
             Sobre Mim
           </h2>
 
-          <p className="text-lg leading-relaxed text-balance mb-6 text-gray-200">
+          <p className="text-base sm:text-lg leading-relaxed text-balance mb-6 text-gray-200">
             Olá! Sou a Mary Mendes. Com formação em Comunicação Visual e
             Marketing, transformo ideias em narrativas visuais que vão além da
             estética: busco criar conteúdos com propósito, alinhados às
             tendências. Em cada projeto, meu objetivo é conectar marcas e
             pessoas com estratégia e autenticidade.
           </p>
-          <div className="text-base text-gray-300 space-y-1">
+
+          <div className="text-sm sm:text-base text-gray-300 space-y-1">
             <p>
               <strong>Altura:</strong> 1,67 m
             </p>

@@ -21,16 +21,18 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="text-white max-w-4xl ml-0 sm:ml-6 md:ml-10"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-8xl font-serif font-bold leading-tight">
+          <h1 className="text-4xl sm:text-6xl md:text-6xl lg:text-8xl font-serif font-bold leading-tight">
             <span>Mary</span> <span>Mendes</span>
           </h1>
-          <p className="text-gray-100 text-lg sm:text-xl md:text-2xl lg:text-xl mt-2 tracking-wide font-sans">
-            <span className="text-white">Criadora de Conteúdo</span>{" "}
-            <span className="text-pink-400 font-bold px-2 animate-pulse">
-              |
-            </span>
-            <span className="text-white">Comunicação Visual & Marketing</span>
-          </p>
+          <div className="pr-8 sm:pr-8  md:pr-0 lg:pr-0 ">
+            <p className="text-gray-100 text-sm sm:text-xl md:text-2xl lg:text-xl mt-2 tracking-wide font-sans">
+              <span className="text-white">Criadora de Conteúdo</span>{" "}
+              <span className="text-pink-400 font-bold px-2 animate-pulse">
+                |
+              </span>
+              <span className="text-white">Comunicação Visual & Marketing</span>
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
