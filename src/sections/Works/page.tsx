@@ -1,10 +1,20 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Video from "next-video";
-import firstVideo from "@/videos/video-1.mp4";
+import fashionFilmAversion from "@/videos/fashion-film-aversion.mp4";
+import fashionFilmBombB from "@/videos/fashion-film-bomb-b.mp4";
+import fashionFilmBomb from "@/videos/fashion-film-bomb.mp4";
+import fashionFilmBooq from "@/videos/fashion-film-booq.mp4";
 import MediaThemeInstaplay from "player.style/instaplay/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+
+const VIDEOS = {
+  1: fashionFilmAversion,
+  2: fashionFilmBombB,
+  3: fashionFilmBomb,
+  4: fashionFilmBooq,
+};
 
 export default function Works() {
   const videoRefs = useRef([]);
@@ -73,29 +83,28 @@ export default function Works() {
       )}
 
       {/* CARROSSEL COM SOMBRAS LATERAIS */}
-      <div
-        className="pt-[95px] pb-10 px-8 relative z-10 overflow-visible"
-        style={{
-          boxShadow:
-            "inset 20px 0 40px -10px rgba(0,0,0,0.9), inset -20px 0 40px -10px rgba(0,0,0,0.9)",
-        }}
-      >
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={"auto"}
-          loop={true}
-          grabCursor={true}
-        >
-          {[...Array(6)].map((_, i) => (
-            <SwiperSlide key={i} style={{ width: "310px" }}>
-              <VideoWithSkeleton
-                videoSrc={firstVideo}
-                videoRef={(el) => (videoRefs.current[i] = el)}
-                onPlay={() => handlePlay(i)}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div>
+        <div className="w-full flex justify-center pt-[95px] pb-10 px-8 relative z-10 overflow-visible">
+          <Swiper
+            spaceBetween={10}
+            slidesPerView={"auto"}
+            loop={true}
+            grabCursor={true}
+          >
+            {Object.values(VIDEOS).map((video, i) => (
+              <SwiperSlide
+                key={i}
+                style={{ width: "260px", aspectRatio: "9 / 16" }}
+              >
+                <VideoWithSkeleton
+                  videoSrc={video}
+                  videoRef={(el) => (videoRefs.current[i] = el)}
+                  onPlay={() => handlePlay(i)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   );
@@ -106,19 +115,20 @@ function VideoWithSkeleton({ videoSrc, videoRef, onPlay }) {
 
   return (
     <div
-      className="w-full max-w-[310px] h-[540px] relative rounded-lg overflow-hidden"
+      className="w-full max-w-[260px] relative overflow-hidden"
       style={{
+        aspectRatio: "9 / 16",
         boxShadow:
           "0 8px 20px rgba(0,0,0,0.15), inset 0 0 30px 15px rgba(0,0,0,0.12)",
       }}
     >
       {!loaded && (
-        <div className="absolute inset-0 bg-gray-700 animate-pulse rounded-lg z-10" />
+        <div className="absolute inset-0 bg-gray-700 animate-pulse z-10" />
       )}
       <Video
         src={videoSrc}
         theme={MediaThemeInstaplay}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${
+        className={`w-full h-full object-contain transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         onLoadedData={() => setLoaded(true)}
