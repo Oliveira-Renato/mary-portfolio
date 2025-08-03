@@ -23,19 +23,18 @@ export default function VideoCarousel({ videos }) {
         loop={true}
         grabCursor={true}
       >
-        {videos &&
-          Object.values(videos).map((video, i) => (
-            <SwiperSlide
-              key={i}
-              style={{ width: "260px", aspectRatio: "9 / 16" }}
-            >
-              <VideoWithSkeleton
-                videoSrc={video}
-                videoRef={(el) => (videoRefs.current[i] = el)}
-                onPlay={() => handlePlay(i)}
-              />
-            </SwiperSlide>
-          ))}
+        {Object.values(videos).map((video, i) => (
+          <SwiperSlide
+            key={i}
+            style={{ width: "260px", aspectRatio: "9 / 16" }}
+          >
+            <VideoWithSkeleton
+              videoSrc={video}
+              videoRef={(el) => (videoRefs.current[i] = el)}
+              onPlay={() => handlePlay(i)}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
