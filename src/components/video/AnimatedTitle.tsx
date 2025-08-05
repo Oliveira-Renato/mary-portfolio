@@ -1,11 +1,18 @@
 "use client";
 
+type AnimatedTitleProps = {
+  sectionInView: boolean;
+  titleMoved: boolean;
+  setTitleMoved: (moved: boolean) => void;
+  setTitle: string;
+};
+
 export default function AnimatedTitle({
   sectionInView,
   titleMoved,
   setTitleMoved,
   setTitle,
-}) {
+ }: AnimatedTitleProps ) {
   return (
     <>
       {sectionInView && !titleMoved && (
