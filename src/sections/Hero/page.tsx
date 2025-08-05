@@ -4,10 +4,11 @@
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  //h-screen w-full bg-no-repeat bg-cover bg-center flex items-center justify-start px-10 overflow-hidden
   return (
     <section
       id="inicio"
-      className="relative h-screen w-full bg-cover bg-center bg-hero-mobile sm:bg-hero-desktop"
+      className="relative h-screen w-full bg-no-repeat bg-cover bg-center overflow-hidden bg-hero"
     >
       {/* Overlay escuro com gradiente */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-0" />
