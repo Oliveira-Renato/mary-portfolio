@@ -17,7 +17,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="text-center max-w-2xl"
       >
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6 font-serif">
+        <h2 className="text-4xl sm:text-5xl sm:text-5xl font-bold mb-6 font-serif">
           Vamos trabalhar juntos?
         </h2>
 
