@@ -19,7 +19,7 @@ export default function Hero() {
         alt="Hero"
         fill
         priority
-        quality={75}
+        quality={100}
         sizes="100vw"
         className="object-cover z-0"
       />
