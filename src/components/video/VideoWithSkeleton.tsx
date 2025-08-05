@@ -3,7 +3,14 @@ import { useState } from "react";
 import Video from "next-video";
 import MediaThemeInstaplay from "player.style/instaplay/react";
 
-export default function VideoWithSkeleton({ videoSrc, videoRef, onPlay }) {
+
+type VideoWithSkeletonProps = {
+  videoSrc: any;
+  videoRef?: (el: HTMLVideoElement | null) => void;
+  onPlay?: () => void;
+};
+
+export default function VideoWithSkeleton({ videoSrc, videoRef, onPlay }: VideoWithSkeletonProps) {
   const [loaded, setLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 

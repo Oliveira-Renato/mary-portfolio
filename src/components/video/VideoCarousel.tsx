@@ -3,11 +3,16 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import VideoWithSkeleton from "./VideoWithSkeleton";
+import type StaticVideoData from "next-video";
 
-export default function VideoCarousel({ videos }) {
-  const videoRefs = useRef([]);
+type Props = {
+  videos: any; // ou StaticVideoData[] se for array direto
+};
 
-  const handlePlay = (indexToKeep) => {
+export default function VideoCarousel({ videos }: Props) {
+  const videoRefs = useRef<HTMLVideoElement[]>([]);
+
+  const handlePlay = (indexToKeep: number) => {
     videoRefs.current.forEach((videoEl, i) => {
       if (videoEl && i !== indexToKeep) {
         videoEl.pause?.();
@@ -30,7 +35,9 @@ export default function VideoCarousel({ videos }) {
           >
             <VideoWithSkeleton
               videoSrc={video}
-              videoRef={(el) => (videoRefs.current[i] = el)}
+              videoRef={(el: HTMLVideoElement | null) =>
+                (videoRefs.current[i] = el!)
+              }
               onPlay={() => handlePlay(i)}
             />
           </SwiperSlide>
