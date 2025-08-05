@@ -42,7 +42,7 @@ export default function MobileMenu({ onNavClick }: MobileMenuProps) {
               <a href="#sobre" onClick={handleLinkClick}>
                 SOBRE
               </a>
-              <a href="#servicos" onClick={handleLinkClick}>
+              <a href="#fashion_films" onClick={handleLinkClick}>
                 FASHION FILMES
               </a>
               <a href="#interactives" onClick={handleLinkClick}>

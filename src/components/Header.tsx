@@ -35,12 +35,15 @@ export default function Header() {
   // Esconde navbar após clique
   const handleNavClick = () => {
     lastClicked.current = Date.now();
-    setVisible(false);
 
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setVisible(true);
-    }, 8000); // exibe de novo se o usuário não mexer nada por 8s
+    if (window.innerWidth >= 640) {
+      setVisible(false);
+
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setVisible(true);
+      }, 8000); // exibe de novo se o usuário não mexer nada por 8s
+    }
   };
 
   // Faz a barra reaparecer ao mover o mouse no topo da tela, em qualquer lugar

@@ -21,7 +21,7 @@ export default function VideoCarousel({ videos }: Props) {
   };
 
   return (
-    <div className="w-full flex justify-center pt-[95px] pb-10 px-8 relative z-10 overflow-visible">
+    <div className="w-full flex justify-center pt-[95px] pb-0 px-0 sm:pb-0  md:pb-10 lg:pb-10 sm:px-0 md:px-8 lg:px-8 relative z-10 overflow-visible">
       <Swiper
         spaceBetween={10}
         slidesPerView={"auto"}
