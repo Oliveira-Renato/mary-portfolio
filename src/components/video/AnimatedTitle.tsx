@@ -38,19 +38,19 @@ export default function AnimatedTitle({
 
       {sectionInView && (
         <div
-          className={`absolute left-0 right-0 z-20 flex justify-center pointer-events-none transition-all duration-700
+          className={`absolute left-0 right-0 z-20 flex ${isMobile ? 'justify-left px-4' : 'justify-center'} pointer-events-none transition-all duration-700
             ${
               titleMoved
                 ? isMobile
                   ? "top-32 opacity-80 scale-90"
                   : "top-32 opacity-80 scale-90"
                 : isMobile
-                ? "top-16 opacity-100 scale-100"
+                ? "left-0 top-40 opacity-100 scale-100"
                 : "top-1/2 -translate-y-1/2 opacity-100 scale-100"
             }
           `}
         >
-          <h2 className="text-6xl font-extrabold tracking-tight text-white drop-shadow-md pointer-events-none relative inline-block after:absolute after:left-0 after:bottom-[-10px] after:w-16 after:h-1 after:bg-pink-400 font-serif">
+          <h2 className="text-3xl sm:text-5xl font-bold mb-6 relative inline-block after:absolute after:left-0 after:bottom-[-10px] after:w-16 after:h-1 after:bg-pink-400 font-serif">
             {setTitle}
           </h2>
         </div>

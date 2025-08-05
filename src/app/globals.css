@@ -37,12 +37,12 @@ body {
   right: 0;
 }
 
-.bg-hero-mobile {
+.bg-hero {
   background-image: url('/hero/home-mobile.jpg');
 }
 
 @media (min-width: 640px) {
-  .bg-hero-desktop {
+  .bg-hero {
     background-image: url('/hero/home-4.jpg');
   }
 }
