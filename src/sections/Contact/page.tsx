@@ -1,11 +1,48 @@
+// Contact.tsx
+"use client";
+
+import { motion } from "framer-motion";
+import { Phone, Mail, Instagram } from "lucide-react";
+
 export default function Contact() {
   return (
-    <section id="contato" className="min-h-[50vh] p-10 bg-gray-900 flex items-center">
-      <div>
-        <h2 className="text-3xl font-bold mb-4">Vamos trabalhar juntos?</h2>
-        <p className="text-lg mb-2">📧 contato@marymendes.com</p>
-        <p className="text-lg">📸 Instagram: @marymendes</p>
-      </div>
+    <section
+      id="contato"
+      className="min-h-screen text-white flex items-center justify-center px-4 sm:px-6 lg:px-24 py-16"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center max-w-2xl"
+      >
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 font-serif">
+          Vamos trabalhar juntos?
+        </h2>
+
+        <div className="space-y-4 text-lg text-gray-300 font-sans">
+          <div className="flex items-center justify-center gap-3">
+            <Phone className="w-5 h-5 text-pink-400" />
+            <span>(11) 97748-6545</span>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Mail className="w-5 h-5 text-pink-400" />
+            <span>falecommarianamendes@gmail.com</span>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Instagram className="w-5 h-5 text-pink-400" />
+            <a
+              href="https://instagram.com/marymendes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              @marymendes
+            </a>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

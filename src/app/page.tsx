@@ -2,15 +2,17 @@ import Header from "../components/Header";
 import About from "../sections/About/page";
 import Contact from "../sections/Contact/page";
 import Hero from "../sections/Hero/page";
-import Works from "../sections/Works/page";
+import FashionFilms from "../sections/FashionFilms/page";
+import Interactives from "../sections/Interactives/page";
 
 export default function Home() {
   return (
     <main>
       <Header />
-      <Hero /> 
+      <Hero />
       <About />
-      <Works />
+      <FashionFilms />
+      <Interactives />
       <Contact />
     </main>
   );
