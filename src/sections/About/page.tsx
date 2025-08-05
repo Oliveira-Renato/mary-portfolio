@@ -10,7 +10,7 @@ import mary5 from "@/assets/about/mary-5.jpg";
 
 export default function About() {
   return (
-    <section id="sobre" className="text-white py-16 px-4 sm:px-6 lg:px-24">
+    <section id="sobre" className="text-white py-16 px-4 sm:px-6 lg:px-24 min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Imagens */}
         <motion.div
