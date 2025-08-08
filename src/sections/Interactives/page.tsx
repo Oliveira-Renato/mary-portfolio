@@ -35,11 +35,7 @@ export default function FashionFilms() {
       initial={{ opacity: 0, y: 30 }}
       animate={sectionInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className="relative text-white py-16 px-4 sm:px-6 lg:px-24 min-h-screen flex items-center overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, #000000 0%, #0a0a0a 80%, #000000 100%)",
-      }}
+      className="relative text-white py-16 px-4 sm:px-6 lg:px-24 min-h-screen flex items-center"
     >
       <div className="max-w-7xl mx-auto py-6">
         <AnimatedTitle
