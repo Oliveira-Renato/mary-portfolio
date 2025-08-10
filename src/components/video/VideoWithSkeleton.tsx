@@ -74,7 +74,7 @@ export default function VideoWithSkeleton({
 
   return (
     <div
-      className="w-full max-w-[260px] relative overflow-hidden rounded-2xl group transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+      className="w-full max-w-[260px] relative overflow-hidden rounded-2xl group transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:scale-105"
       style={{
         aspectRatio: "9 / 16",
         boxShadow:
