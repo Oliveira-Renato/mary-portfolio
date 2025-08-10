@@ -1,18 +1,76 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Video from "next-video";
-import MediaThemeInstaplay from "player.style/instaplay/react";
-
+import Hls from "hls.js";
 
 type VideoWithSkeletonProps = {
-  videoSrc: any;
-  videoRef?: (el: HTMLVideoElement | null) => void;
-  onPlay?: () => void;
+  videoData: {
+    poster: string;
+    sources: { src: string; type: string }[];
+  };
+  isPlaying: boolean;
+  onPlay: () => void;
+  onPause: () => void;
 };
 
-export default function VideoWithSkeleton({ videoSrc, videoRef, onPlay }: VideoWithSkeletonProps) {
-  const [loaded, setLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+export default function VideoWithSkeleton({
+  videoData,
+  isPlaying,
+  onPlay,
+  onPause,
+}: VideoWithSkeletonProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [thumbLoaded, setThumbLoaded] = useState(false);
+  const videoUrl = videoData.sources[0]?.src;
+  const thumbnailUrl = videoData.poster;
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    if (isPlaying) {
+      videoRef.current.play().catch((e) => {
+        // Se for AbortError, pode ignorar
+        if (e.name !== "AbortError") {
+          console.error("Erro ao tentar dar play:", e);
+        }
+      });
+    } else {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = thumbnailUrl;
+    img.onload = () => setThumbLoaded(true);
+    img.onerror = () => {
+      console.error("Erro ao carregar thumb!");
+      setThumbLoaded(true);
+    };
+    const timeout = setTimeout(() => setThumbLoaded(true), 5000);
+    return () => clearTimeout(timeout);
+  }, [thumbnailUrl]);
+
+  useEffect(() => {
+    if (!videoUrl || !videoRef.current) return;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoUrl);
+      hls.attachMedia(videoRef.current);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (isPlaying) videoRef.current?.play();
+      });
+
+      return () => {
+        hls.destroy();
+      };
+    } else if (videoRef.current.canPlayType("application/vnd.apple.mpegurl")) {
+      videoRef.current.src = videoUrl;
+      if (isPlaying) videoRef.current.play();
+    }
+  }, [videoUrl, isPlaying]);
 
   return (
     <div
@@ -23,36 +81,42 @@ export default function VideoWithSkeleton({ videoSrc, videoRef, onPlay }: VideoW
           "0 8px 20px rgba(0,0,0,0.15), inset 0 0 30px 15px rgba(0,0,0,0.12)",
       }}
     >
-      {/* Skeleton enquanto carrega */}
-      {!loaded && (
-        <div className="absolute inset-0 bg-gray-700 animate-pulse z-10 rounded-2xl" />
-      )}
-
-      {/* Vídeo com play/pause listeners */}
-      <Video
-        src={videoSrc}
-        theme={MediaThemeInstaplay}
-        className={`w-full h-full object-contain rounded-2xl transition-opacity duration-500 ${
-          loaded ? "opacity-100" : "opacity-0"
+      {/* Skeleton */}
+      <div
+        className={`absolute inset-0 bg-gray-700 rounded-2xl transition-opacity duration-500 z-10 ${
+          thumbLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
-        onLoadedData={() => setLoaded(true)}
-        ref={(el) => {
-          if (videoRef) videoRef(el);
-        }}
-        onPlay={() => {
-          setIsPlaying(true);
-          onPlay?.();
-        }}
-        onPause={() => setIsPlaying(false)}
       />
-
-      {/* Overlay de texto no hover, só se não estiver tocando */}
+      {/* Thumbnail */}
+      <img
+        src={thumbnailUrl}
+        alt="Video thumbnail"
+        className="absolute inset-0 w-full h-full object-cover rounded-2xl z-0"
+        onLoad={() => setThumbLoaded(true)}
+        onError={() => setThumbLoaded(true)}
+      />
+      {/* Overlay para play */}
       {!isPlaying && (
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-20 rounded-2xl pointer-events-none">
-          <p className="text-white text-sm font-semibold">
-            Aperte para assistir
-          </p>
+        <div className="absolute inset-0 flex items-center justify-center z-20 rounded-2xl bg-black/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+          <button
+            onClick={onPlay}
+            className="bg-white text-black px-4 py-2 rounded-lg font-semibold shadow-lg"
+          >
+            ▶️ Assistir
+          </button>
         </div>
+      )}
+      {/* Player */}
+      {isPlaying && (
+        <Video
+          ref={videoRef}
+          controls
+          autoPlay
+          muted
+          playsInline
+          onPause={onPause}
+          className="absolute inset-0 w-full h-full object-contain rounded-2xl z-30"
+        />
       )}
     </div>
   );
