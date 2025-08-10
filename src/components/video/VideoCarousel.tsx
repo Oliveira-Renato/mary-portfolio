@@ -14,7 +14,7 @@ export default function VideoCarousel({ videos }: Props) {
   return (
     <div className="w-full flex justify-center pt-[95px] pb-0 px-0 sm:pb-0 md:pb-10 lg:pb-10 sm:px-0 md:px-8 lg:px-8 relative z-10 overflow-visible">
       <Swiper
-        spaceBetween={10}
+        spaceBetween={20}
         slidesPerView={"auto"}
         loop={true}
         grabCursor={true}
@@ -29,8 +29,6 @@ export default function VideoCarousel({ videos }: Props) {
               isPlaying={playingIndex === i}
               onPlay={() => setPlayingIndex(i)}
               onPause={() => {
-                // Opcional: Se quiser que pause o vídeo ao clicar pause,
-                // você pode zerar o playingIndex só se for o mesmo.
                 if (playingIndex === i) setPlayingIndex(null);
               }}
             />

@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Video from "next-video";
 import Hls from "hls.js";
+import { Play } from "lucide-react";
 
 type VideoWithSkeletonProps = {
   videoData: {
@@ -29,7 +30,6 @@ export default function VideoWithSkeleton({
 
     if (isPlaying) {
       videoRef.current.play().catch((e) => {
-        // Se for AbortError, pode ignorar
         if (e.name !== "AbortError") {
           console.error("Erro ao tentar dar play:", e);
         }
@@ -100,9 +100,16 @@ export default function VideoWithSkeleton({
         <div className="absolute inset-0 flex items-center justify-center z-20 rounded-2xl bg-black/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
           <button
             onClick={onPlay}
-            className="bg-white text-black px-4 py-2 rounded-lg font-semibold shadow-lg"
+            className="
+      flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-semibold shadow-lg
+      bg-black text-pink-400 border-2 border-pink-400
+      border-pulse
+      hover:bg-pink-900 hover:text-pink-300
+      transition-colors duration-300
+    "
           >
-            ▶️ Assistir
+            <Play className="w-5 h-5" />
+            Assistir
           </button>
         </div>
       )}
