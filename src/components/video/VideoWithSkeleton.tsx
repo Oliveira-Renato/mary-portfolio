@@ -102,9 +102,8 @@ export default function VideoWithSkeleton({
             onClick={onPlay}
             className="
       flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-semibold shadow-lg
-      bg-black text-pink-400 border-2 border-pink-400
-      border-pulse
-      hover:bg-pink-900 hover:text-pink-300
+      bg-black text-gray-50 border-2 border-gray-50
+      hover:bg-gray-400 hover:text-gray-300
       transition-colors duration-300
     "
           >

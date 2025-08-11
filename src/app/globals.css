@@ -44,19 +44,3 @@ body {
     background-image: url("/hero/home-4.jpg");
   }
 }
-
-@keyframes pulseBorder {
-  0%,
-  100% {
-    border-color: #f472b6; /* pink-400 */
-    box-shadow: 0 0 6px 2px #f472b6;
-  }
-  50% {
-    border-color: #fbcfe8; /* pink-300 */
-    box-shadow: 0 0 12px 4px #fbcfe8;
-  }
-}
-
-.border-pulse {
-  animation: pulseBorder 2.5s infinite;
-}

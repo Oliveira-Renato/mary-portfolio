@@ -23,15 +23,15 @@ export default function Contact() {
 
         <div className="space-y-4 text-lg text-gray-300 font-sans">
           <div className="flex items-center justify-center gap-3">
-            <Phone className="w-5 h-5 text-pink-400" />
+            <Phone className="w-5 h-5 text-[#4D8841]" />
             <span>(11) 97748-6545</span>
           </div>
           <div className="flex items-center justify-center gap-3">
-            <Mail className="w-5 h-5 text-pink-400" />
+            <Mail className="w-5 h-5 text-[#4D8841]" />
             <span>falecommarianamendes@gmail.com</span>
           </div>
           <div className="flex items-center justify-center gap-3">
-            <Instagram className="w-5 h-5 text-pink-400" />
+            <Instagram className="w-5 h-5 text-[#4D8841]" />
             <a
               href="https://instagram.com/marymendes"
               target="_blank"
