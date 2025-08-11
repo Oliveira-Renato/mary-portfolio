@@ -22,7 +22,7 @@ export default function VideoWithSkeleton({
 }: VideoWithSkeletonProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [thumbLoaded, setThumbLoaded] = useState(false);
-  const videoUrl = videoData.sources[0]?.src;
+  const videoUrl = videoData && videoData.sources && videoData.sources[0]?.src;
   const thumbnailUrl = videoData.poster;
 
   useEffect(() => {

@@ -78,6 +78,7 @@ export default function Header() {
               { label: "SOBRE", href: "#sobre" },
               { label: "FASHION FILMES", href: "#fashion_films" },
               { label: "INTERATIVOS", href: "#interactives" },
+              { label: "MAIS SERVIÇOS", href: "#more_services" },
               { label: "CONTATO", href: "#contato" },
             ].map(({ label, href }) => (
               <a
