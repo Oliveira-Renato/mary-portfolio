@@ -42,7 +42,7 @@ export default function Hero() {
           <div className="pr-8 sm:pr-8 md:pr-0 lg:pr-0">
             <p className="text-gray-100 text-sm sm:text-xl md:text-2xl lg:text-[28px] mt-2 tracking-wide font-sans">
               <span className="text-white">Criadora de Conteúdo</span>{" "}
-              <span className="text-pink-400 font-bold px-2 animate-pulse">|</span>
+              <span className="text-[#4D8841] font-bold px-2 animate-pulse">|</span>
               <span className="text-white">Comunicação Visual & Marketing</span>
             </p>
           </div>

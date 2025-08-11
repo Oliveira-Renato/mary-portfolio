@@ -59,7 +59,7 @@ export default function About() {
           viewport={{ once: true }}
           className="font-sans"
         >
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold mb-6 relative inline-block after:absolute after:left-0 after:bottom-[-10px] after:w-16 after:h-1 after:bg-pink-400">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold mb-6 relative inline-block after:absolute after:left-0 after:bottom-[-10px] after:w-16 after:h-1 after:bg-[#4D8841]">
             Sobre Mim
           </h2>
 

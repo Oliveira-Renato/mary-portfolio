@@ -85,7 +85,7 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={handleNavClick}
-                className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-400 after:transition-all after:duration-300 hover:after:w-full hover:text-white"
+                className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#4D8841] after:transition-all after:duration-300 hover:after:w-full hover:text-white"
               >
                 {label}
               </a>
