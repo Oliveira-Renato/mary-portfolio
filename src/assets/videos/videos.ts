@@ -8,6 +8,9 @@ import videoIn2 from "@/videos/interativos/interativo-filtran-andorinha-2.mp4.js
 import videoIn3 from "@/videos/interativos/interativo-filtran-andorinha.mp4.json";
 import videoIn4 from "@/videos/interativos/interativo-filtran.mp4.json";
 
+import videoUn1 from "@/videos/mais_servicos/trend_bom-b.mov.json";
+import videoUn2 from "@/videos/mais_servicos/unboxing_aversion.mov.json";
+
 const FASHIONFILMES = {
   1: video1,
   2: video2,
@@ -22,7 +25,13 @@ const INTERATIVOS = {
   4: videoIn4,
 };
 
+const MAIS_SERVICOS = {
+  1: videoUn1,
+  2: videoUn2,
+};
+
 export default {
   FASHIONFILMES,
   INTERATIVOS,
+  MAIS_SERVICOS,
 };

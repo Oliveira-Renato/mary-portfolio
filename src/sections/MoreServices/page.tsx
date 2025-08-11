@@ -8,7 +8,7 @@ import videos from "@/assets/videos/videos";
 
 export default function FashionFilms() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const { FASHIONFILMES } = videos;
+  const { MAIS_SERVICOS } = videos;
   const [sectionInView, setSectionInView] = useState(false);
   const [titleMoved, setTitleMoved] = useState(false);
 
@@ -30,7 +30,7 @@ export default function FashionFilms() {
 
   return (
     <motion.section
-      id="fashion_films"
+      id="more_services"
       ref={sectionRef}
       initial={{ opacity: 0, y: 30 }}
       animate={sectionInView ? { opacity: 1, y: 0 } : {}}
@@ -42,11 +42,11 @@ export default function FashionFilms() {
           sectionInView={sectionInView}
           titleMoved={titleMoved}
           setTitleMoved={setTitleMoved}
-          setTitle={"Fashion Films"}
+          setTitle={"Mais serviços"}
         />
 
         <div className="mt-8">
-          <VideoCarousel videos={FASHIONFILMES} />
+          <VideoCarousel videos={MAIS_SERVICOS} />
         </div>
       </div>
     </motion.section>

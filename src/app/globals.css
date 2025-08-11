@@ -1,6 +1,4 @@
 @import "tailwindcss";
---font-sans: var(--font-poppins);
---font-mono: var(--font-playfair);
 
 :root {
   --background: #ffffff;
@@ -38,11 +36,27 @@ body {
 }
 
 .bg-hero {
-  background-image: url('/hero/home-mobile.jpg');
+  background-image: url("/hero/home-mobile.jpg");
 }
 
 @media (min-width: 640px) {
   .bg-hero {
-    background-image: url('/hero/home-4.jpg');
+    background-image: url("/hero/home-4.jpg");
   }
+}
+
+@keyframes pulseBorder {
+  0%,
+  100% {
+    border-color: #f472b6; /* pink-400 */
+    box-shadow: 0 0 6px 2px #f472b6;
+  }
+  50% {
+    border-color: #fbcfe8; /* pink-300 */
+    box-shadow: 0 0 12px 4px #fbcfe8;
+  }
+}
+
+.border-pulse {
+  animation: pulseBorder 2.5s infinite;
 }

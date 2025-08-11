@@ -1,44 +1,39 @@
 "use client";
-import { useRef } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import VideoWithSkeleton from "./VideoWithSkeleton";
-import type StaticVideoData from "next-video";
 
 type Props = {
-  videos: any; // ou StaticVideoData[] se for array direto
+  videos: Record<string, any>;
 };
 
 export default function VideoCarousel({ videos }: Props) {
-  const videoRefs = useRef<HTMLVideoElement[]>([]);
-
-  const handlePlay = (indexToKeep: number) => {
-    videoRefs.current.forEach((videoEl, i) => {
-      if (videoEl && i !== indexToKeep) {
-        videoEl.pause?.();
-      }
-    });
-  };
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   return (
-    <div className="w-full flex justify-center pt-[95px] pb-0 px-0 sm:pb-0  md:pb-10 lg:pb-10 sm:px-0 md:px-8 lg:px-8 relative z-10 overflow-visible">
+    <div className="w-full flex justify-center pt-[95px] pb-0 px-0 sm:pb-0 md:pb-10 lg:pb-10 sm:px-0 md:px-8 lg:px-8 relative z-10">
       <Swiper
-        spaceBetween={10}
+        spaceBetween={20}
         slidesPerView={"auto"}
         loop={true}
         grabCursor={true}
       >
-        {Object.values(videos).map((video, i) => (
+        {Object.values(videos).map((videoData: any, i) => (
           <SwiperSlide
             key={i}
-            style={{ width: "260px", aspectRatio: "9 / 16" }}
+            style={{
+              width: "260px",
+              aspectRatio: "9 / 16",
+            }}
           >
             <VideoWithSkeleton
-              videoSrc={video}
-              videoRef={(el: HTMLVideoElement | null) =>
-                (videoRefs.current[i] = el!)
-              }
-              onPlay={() => handlePlay(i)}
+              videoData={videoData}
+              isPlaying={playingIndex === i}
+              onPlay={() => setPlayingIndex(i)}
+              onPause={() => {
+                if (playingIndex === i) setPlayingIndex(null);
+              }}
             />
           </SwiperSlide>
         ))}
