@@ -45,7 +45,7 @@ export default function AnimatedTitle({
                   ? "top-32 opacity-80 scale-90"
                   : "top-32 opacity-80 scale-90"
                 : isMobile
-                ? "left-0 top-40 opacity-100 scale-100"
+                ? "left-0 top-32 opacity-100 scale-100"
                 : "top-1/2 -translate-y-1/2 opacity-100 scale-100"
             }
           `}
