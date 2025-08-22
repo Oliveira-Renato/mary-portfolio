@@ -76,9 +76,6 @@ export default function About() {
               <strong>Altura:</strong> 1,67 m
             </p>
             <p>
-              <strong>Peso:</strong> 56 kg
-            </p>
-            <p>
               <strong>Busto:</strong> 86 cm
             </p>
             <p>
@@ -86,12 +83,6 @@ export default function About() {
             </p>
             <p>
               <strong>Quadril:</strong> 96 cm
-            </p>
-            <p>
-              <strong>Vestuário:</strong> P, M e 38
-            </p>
-            <p>
-              <strong>Calçado:</strong> 35
             </p>
           </div>
         </motion.div>

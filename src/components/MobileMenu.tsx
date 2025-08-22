@@ -49,7 +49,7 @@ export default function MobileMenu({ onNavClick }: MobileMenuProps) {
                 INTERATIVOS
               </a>
               <a href="#more_services" onClick={handleLinkClick}>
-                Mais serviços
+                MAIS SERVIÇOS
               </a>
               <a href="#contato" onClick={handleLinkClick}>
                 CONTATO
