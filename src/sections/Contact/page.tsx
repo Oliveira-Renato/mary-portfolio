@@ -33,7 +33,7 @@ export default function Contact() {
           <div className="flex items-center justify-center gap-3">
             <Instagram className="w-5 h-5 text-[#4D8841]" />
             <a
-              href="https://instagram.com/marymendes"
+              href="https://instagram.com/marymendesm"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
