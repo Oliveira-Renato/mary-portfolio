@@ -74,16 +74,17 @@ export default function VideoWithSkeleton({
 
   return (
     <div
-      className="w-full max-w-[260px] relative overflow-hidden rounded-2xl group transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:scale-105"
+      className="w-full max-w-[260px] relative z-20 rounded-2xl group transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:scale-105"
       style={{
         aspectRatio: "9 / 16",
         boxShadow:
           "0 8px 20px rgba(0,0,0,0.15), inset 0 0 30px 15px rgba(0,0,0,0.12)",
+          
       }}
     >
       {/* Skeleton */}
       <div
-        className={`absolute inset-0 bg-gray-700 rounded-2xl transition-opacity duration-500 z-10 ${
+        className={`absolute inset-0 bg-gray-700  transition-opacity duration-500 ${
           thumbLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       />
@@ -91,21 +92,21 @@ export default function VideoWithSkeleton({
       <img
         src={thumbnailUrl}
         alt="Video thumbnail"
-        className="absolute inset-0 w-full h-full object-cover rounded-2xl z-0"
+        className="absolute inset-0 w-full h-full object-cover rounded-2xl"
         onLoad={() => setThumbLoaded(true)}
         onError={() => setThumbLoaded(true)}
       />
       {/* Overlay para play */}
       {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center z-20 rounded-2xl bg-black/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
           <button
             onClick={onPlay}
             className="
-      flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-semibold shadow-lg
-      bg-black text-gray-50 border-2 border-gray-50
-      hover:bg-gray-400 hover:text-gray-300
-      transition-colors duration-300
-    "
+              flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-semibold shadow-lg
+              bg-black text-gray-50 border-2 border-gray-50
+              hover:bg-gray-400 hover:text-gray-300
+              transition-colors duration-500
+            "
           >
             <Play className="w-5 h-5" />
             Assistir
@@ -114,15 +115,16 @@ export default function VideoWithSkeleton({
       )}
       {/* Player */}
       {isPlaying && (
+       <div className="absolute inset-0 rounded-2xl overflow-hidden">
         <Video
           ref={videoRef}
           controls
           autoPlay
-          muted
           playsInline
           onPause={onPause}
-          className="absolute inset-0 w-full h-full object-contain rounded-2xl z-30"
+          className="w-full h-full object-contain"
         />
+      </div>
       )}
     </div>
   );

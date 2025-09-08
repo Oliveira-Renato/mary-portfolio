@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, Instagram } from "lucide-react";
+import { Phone, Mail, Instagram, Linkedin } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -26,21 +26,37 @@ export default function Contact() {
             <Phone className="w-5 h-5 text-[#4D8841]" />
             <span>(11) 97748-6545</span>
           </div>
-          <div className="flex items-center justify-center gap-3">
-            <Mail className="w-5 h-5 text-[#4D8841]" />
-            <span>falecommarianamendes@gmail.com</span>
-          </div>
+
           <div className="flex items-center justify-center gap-3">
             <Instagram className="w-5 h-5 text-[#4D8841]" />
             <a
-              href="https://instagram.com/marymendesm"
+              href="https://instagram.com/mary.mendesm"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              @marymendes
+              @mary.mendes
             </a>
           </div>
+
+           <div className="flex items-center justify-center gap-3">
+            <Linkedin className="w-5 h-5 text-[#4D8841]" />
+            <a
+              href="https://www.linkedin.com/in/mariana-mendes-6573161bb?"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Mariana Mendes 
+            </a>
+          </div>
+
+
+          <div className="flex items-center justify-center gap-3">
+            <Mail className="w-5 h-5 text-[#4D8841]" />
+            <span>falecommarianamendes@gmail.com</span>
+          </div>
+
         </div>
       </motion.div>
     </section>
