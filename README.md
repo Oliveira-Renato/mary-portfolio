@@ -1,28 +1,28 @@
 # Mary Mendes – Model Portfolio
 
-Portfolio profissional desenvolvido para uma modelo, com foco em **UI moderna**, **responsividade** e **experiência visual**, inspirado em layouts atuais de redes sociais como o Instagram.
+A professional portfolio developed for a model, focused on **modern UI**, **responsiveness**, and **visual experience**, inspired by current social media layouts such as Instagram.
 
-O projeto apresenta fotos e vídeos de forma elegante e fluida, destacando trabalhos, estilo e presença digital da modelo.
+The project showcases photos and videos in an elegant and fluid way, highlighting the model’s work, style, and digital presence.
 
-🌐 **Deploy:** https://mary-portfolio-olive.vercel.app
-
----
-
-## ✨ Funcionalidades
-
-- 🎥 Exibição de vídeos no formato vertical (estilo Instagram)
-- 📱 Layout totalmente responsivo (mobile-first)
-- 🎨 UI moderna com foco em moda e lifestyle
-- ⚡ Performance otimizada com Next.js
-- ☁️ Vídeos hospedados via Mux
-- 🎬 Player de vídeo utilizando Nuxt Video
+🌐 **Live Demo:** https://mary-portfolio-olive.vercel.app
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## ✨ Features
 
-- **Next.js** – Framework React para SSR e SSG
-- **Tailwind CSS** – Estilização utilitária e responsiva
-- **Nuxt Video** – Player moderno para vídeos
-- **Mux** – Hospedagem e streaming de vídeos
-- **Vercel** – Deploy e hospedagem
+- 🎥 Vertical video display (Instagram-style format)
+- 📱 Fully responsive layout (mobile-first)
+- 🎨 Modern UI focused on fashion and lifestyle
+- ⚡ Optimized performance with Next.js
+- ☁️ Video hosting and streaming via Mux
+- 🎬 Video player powered by Nuxt Video
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js** – React framework for SSR and SSG
+- **Tailwind CSS** – Utility-first CSS framework
+- **Nuxt Video** – Modern video player
+- **Mux** – Video hosting and streaming platform
+- **Vercel** – Deployment and hosting
