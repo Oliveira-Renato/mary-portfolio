@@ -4,7 +4,7 @@ A professional portfolio developed for a model, focused on **modern UI**, **resp
 
 The project showcases photos and videos in an elegant and fluid way, highlighting the model’s work, style, and digital presence.
 
-🌐 **Live Demo:** https://mary-portfolio-olive.vercel.app
+🌐 **Live Demo:** https://mary-portfolio.vercel.app
 
 ---
 
